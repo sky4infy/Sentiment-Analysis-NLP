@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyPj3t4KG2Y5jSbL/a1vtJgl",
+      "authorship_tag": "ABX9TyP6crB/teIgDlot8oaBpW9W",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -63,6 +63,230 @@
         "id": "DQAXX0Vy2_3P"
       },
       "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df=pd.read_csv('/content/twitter_training.csv')"
+      ],
+      "metadata": {
+        "id": "9JtcaWK744Z3"
+      },
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 206
+        },
+        "id": "QSilbTit5GUU",
+        "outputId": "1a43a64e-b5d9-4f78-aa27-eb23f1c29b34"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "   2401  Borderlands  Positive  \\\n",
+              "0  2401  Borderlands  Positive   \n",
+              "1  2401  Borderlands  Positive   \n",
+              "2  2401  Borderlands  Positive   \n",
+              "3  2401  Borderlands  Positive   \n",
+              "4  2401  Borderlands  Positive   \n",
+              "\n",
+              "  im getting on borderlands and i will murder you all ,  \n",
+              "0  I am coming to the borders and I will kill you...     \n",
+              "1  im getting on borderlands and i will kill you ...     \n",
+              "2  im coming on borderlands and i will murder you...     \n",
+              "3  im getting on borderlands 2 and i will murder ...     \n",
+              "4  im getting into borderlands and i can murder y...     "
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-b4ac2677-acc5-4f40-91e1-4596f9ab7faf\" class=\"colab-df-container\">\n",
+              "    <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>2401</th>\n",
+              "      <th>Borderlands</th>\n",
+              "      <th>Positive</th>\n",
+              "      <th>im getting on borderlands and i will murder you all ,</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>2401</td>\n",
+              "      <td>Borderlands</td>\n",
+              "      <td>Positive</td>\n",
+              "      <td>I am coming to the borders and I will kill you...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>2401</td>\n",
+              "      <td>Borderlands</td>\n",
+              "      <td>Positive</td>\n",
+              "      <td>im getting on borderlands and i will kill you ...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>2401</td>\n",
+              "      <td>Borderlands</td>\n",
+              "      <td>Positive</td>\n",
+              "      <td>im coming on borderlands and i will murder you...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>2401</td>\n",
+              "      <td>Borderlands</td>\n",
+              "      <td>Positive</td>\n",
+              "      <td>im getting on borderlands 2 and i will murder ...</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>2401</td>\n",
+              "      <td>Borderlands</td>\n",
+              "      <td>Positive</td>\n",
+              "      <td>im getting into borderlands and i can murder y...</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "    <div class=\"colab-df-buttons\">\n",
+              "\n",
+              "  <div class=\"colab-df-container\">\n",
+              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-b4ac2677-acc5-4f40-91e1-4596f9ab7faf')\"\n",
+              "            title=\"Convert this dataframe to an interactive table.\"\n",
+              "            style=\"display:none;\">\n",
+              "\n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\">\n",
+              "    <path d=\"M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z\"/>\n",
+              "  </svg>\n",
+              "    </button>\n",
+              "\n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-buttons div {\n",
+              "      margin-bottom: 4px;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "    <script>\n",
+              "      const buttonEl =\n",
+              "        document.querySelector('#df-b4ac2677-acc5-4f40-91e1-4596f9ab7faf button.colab-df-convert');\n",
+              "      buttonEl.style.display =\n",
+              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "      async function convertToInteractive(key) {\n",
+              "        const element = document.querySelector('#df-b4ac2677-acc5-4f40-91e1-4596f9ab7faf');\n",
+              "        const dataTable =\n",
+              "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                    [key], {});\n",
+              "        if (!dataTable) return;\n",
+              "\n",
+              "        const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "          '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "          + ' to learn more about interactive tables.';\n",
+              "        element.innerHTML = '';\n",
+              "        dataTable['output_type'] = 'display_data';\n",
+              "        await google.colab.output.renderOutput(dataTable, element);\n",
+              "        const docLink = document.createElement('div');\n",
+              "        docLink.innerHTML = docLinkHtml;\n",
+              "        element.appendChild(docLink);\n",
+              "      }\n",
+              "    </script>\n",
+              "  </div>\n",
+              "\n",
+              "\n",
+              "    </div>\n",
+              "  </div>\n"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "dataframe",
+              "variable_name": "df",
+              "summary": "{\n  \"name\": \"df\",\n  \"rows\": 74681,\n  \"fields\": [\n    {\n      \"column\": \"2401\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 3740,\n        \"min\": 1,\n        \"max\": 13200,\n        \"num_unique_values\": 12447,\n        \"samples\": [\n          1616,\n          2660,\n          2335\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Borderlands\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 32,\n        \"samples\": [\n          \"Cyberpunk2077\",\n          \"Microsoft\",\n          \"TomClancysRainbowSix\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Positive\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 4,\n        \"samples\": [\n          \"Neutral\",\n          \"Irrelevant\",\n          \"Positive\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"im getting on borderlands and i will murder you all ,\",\n      \"properties\": {\n        \"dtype\": \"string\",\n        \"num_unique_values\": 69490,\n        \"samples\": [\n          \"so how does my stained glass open facebook account girl already have 200 likes!!!! and i sure am so!!??? oh thankful!??!?!\",\n          \"How not to get bored about every damn thing in life.\",\n          \"The Best Perfect Way to Protect All the Planet Samsung Galaxy Note10 + By buff. ly / The 2zkjIhU..\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    }\n  ]\n}"
+            }
+          },
+          "metadata": {},
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Deleting unwanted Colums**"
+      ],
+      "metadata": {
+        "id": "pGYdklyi53kX"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.drop(columns=['2401'],inplace=True)"
+      ],
+      "metadata": {
+        "id": "cHK8lrV059Z6"
+      },
+      "execution_count": 6,
       "outputs": []
     }
   ]
