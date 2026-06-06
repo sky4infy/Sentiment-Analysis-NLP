@@ -1,0 +1,69 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPj3t4KG2Y5jSbL/a1vtJgl",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/sky4infy/Sentiment-Analysis-NLP/blob/main/models/Sentiment_analysis_NLP.ipnyb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "wQklhtpl2YWU"
+      },
+      "outputs": [],
+      "source": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Twitter Sentiment Analysis**\n"
+      ],
+      "metadata": {
+        "id": "rqH27t1K2tvQ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Importing dependencies"
+      ],
+      "metadata": {
+        "id": "Bu7G0Ij_27xi"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import spacy"
+      ],
+      "metadata": {
+        "id": "DQAXX0Vy2_3P"
+      },
+      "execution_count": 1,
+      "outputs": []
+    }
+  ]
+}
